@@ -1,13 +1,9 @@
 @import "tailwindcss";
 
-/*
- * Theme tokens (PRD §4) — placeholder palette, swap freely later.
- * Everything flows through CSS variables so re-theming is a 3-line change.
- */
 :root {
-  --background: #16181d; /* deep slate / charcoal */
-  --foreground: #f4f2ee; /* off-white */
-  --accent: #b8f135; /* electric green */
+  --background: #16181d;
+  --foreground: #f4f2ee;
+  --accent: #b8f135;
 }
 
 @theme inline {
@@ -16,9 +12,7 @@
   --color-accent: var(--accent);
 }
 
-html,
-body,
-#root {
+html, body, #root {
   height: 100%;
   margin: 0;
   overflow: hidden;
@@ -28,10 +22,6 @@ body,
   -webkit-font-smoothing: antialiased;
 }
 
-/*
- * PRD §3: the canvas must own all touch gestures — without this,
- * dragging the scene on mobile scrolls/bounces the page instead.
- */
 .canvas-container,
 .canvas-container canvas {
   touch-action: none;
