@@ -3,9 +3,8 @@ import Experience from './components/Experience'
 
 export default function App() {
   return (
-    <div className="relative h-full w-full bg-background">
-      {/* Fixed full-screen 3D layer */}
-      <div className="canvas-container fixed inset-0 h-screen w-screen">
+    <div style={{ position: 'relative', height: '100%', width: '100%', background: '#16181d' }}>
+      <div className="canvas-container" style={{ position: 'fixed', inset: 0 }}>
         <Canvas
           shadows
           dpr={[1, 2]}
@@ -15,12 +14,22 @@ export default function App() {
         </Canvas>
       </div>
 
-      {/* 2D DOM overlay — pointer-events pass through to the canvas */}
-      <div className="pointer-events-none fixed inset-0 flex flex-col items-center justify-end pb-[12vh]">
-        <p className="text-sm uppercase tracking-[0.3em] text-foreground/80 md:text-base">
+      <div style={{
+        pointerEvents: 'none',
+        position: 'fixed',
+        inset: 0,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        paddingBottom: '12vh'
+      }}>
+        <p style={{ fontSize: '0.8rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#f4f2eecc' }}>
           Full-Stack Software Engineer
         </p>
-        <p className="mt-3 text-xs text-accent">drag to explore</p>
+        <p style={{ marginTop: '12px', fontSize: '0.75rem', color: '#b8f135' }}>
+          drag to explore
+        </p>
       </div>
     </div>
   )
