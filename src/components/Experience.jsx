@@ -1,10 +1,5 @@
 import { Center, Environment, Float, PresentationControls, Text3D } from '@react-three/drei'
 
-/**
- * Everything that lives inside the <Canvas>.
- * PRD §3: ambient 0.5 + shadow-casting directional, "city" environment
- * for material reflections, and springy PresentationControls for drag.
- */
 export default function Experience() {
   return (
     <>
@@ -33,31 +28,25 @@ export default function Experience() {
         azimuth={[-0.7, 0.7]}
         config={{ mass: 1, tension: 170, friction: 26 }}
       >
-        <HeroText />
+        <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.5}>
+          <Center>
+            <Text3D
+              font="/fonts/helvetiker_bold.typeface.json"
+              size={0.85}
+              height={0.25}
+              curveSegments={12}
+              bevelEnabled
+              bevelThickness={0.03}
+              bevelSize={0.02}
+              bevelSegments={4}
+              castShadow
+            >
+              Taran Pal Singh
+              <meshStandardMaterial color="#f4f2ee" metalness={0.4} roughness={0.25} />
+            </Text3D>
+          </Center>
+        </Float>
       </PresentationControls>
     </>
-  )
-}
-
-function HeroText() {
-  return (
-    <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.5}>
-      <Center>
-        <Text3D
-          font="/fonts/helvetiker_bold.typeface.json"
-          size={0.85}
-          height={0.25}
-          curveSegments={12}
-          bevelEnabled
-          bevelThickness={0.03}
-          bevelSize={0.02}
-          bevelSegments={4}
-          castShadow
-        >
-          Taran Pal Singh
-          <meshStandardMaterial color="#f4f2ee" metalness={0.4} roughness={0.25} />
-        </Text3D>
-      </Center>
-    </Float>
   )
 }
